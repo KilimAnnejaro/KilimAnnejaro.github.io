@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Backend Development Example</title>
+</head>
+<body>
+	<p>This is an example call to the HackerNews API.</p><button onclick="myFunction()" type="button">Click Me!</button>
+	<p id="demo">This is a demonstration.</p>
+	<script>
+
+	   function myFunction() {
+	    const myRequest = new Request('https://hacker-news.firebaseio.com/v0/item/23469209.json?print=pretty', {
+	    method: 'GET',
+	    mode: 'cors',
+	    cache: 'default',
+	   });
+
+	   fetch(myRequest)
+	    .then( function (response) {return response.text()})
+	    .then(
+	      function(text) {document.getElementById("demo").innerHTML = text}
+	    )
+	   ;
+	   }
+	</script>
+</body>
+</html>
